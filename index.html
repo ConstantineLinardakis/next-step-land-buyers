@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next Step Land Buyers — Sell Your Land for Cash</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14212C;
+    --ink-soft:#2A3B48;
+    --paper:#F3F1EB;
+    --paper-dim:#E8E3D8;
+    --paper-line:#D8D2C3;
+    --brass:#B8863B;
+    --brass-deep:#8F6A2C;
+    --slate:#5F6F7A;
+    --clay:#B9502D;
+    --display: 'Fraunces', serif;
+    --body: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;border:none;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  /* perforated divider motif — evokes a torn check/contract stub */
+  .perf{
+    height:1px;
+    background-image:linear-gradient(to right, var(--paper-line) 60%, transparent 0%);
+    background-position:top;
+    background-size:14px 1px;
+    background-repeat:repeat-x;
+    position:relative;
+    transition:filter .25s ease, transform .25s ease;
+  }
+  .perf:hover{filter:drop-shadow(0 4px 5px rgba(143,106,44,.3));transform:translateY(-1px);}
+  .perf::before,.perf::after{
+    content:"";
+    position:absolute;top:-7px;
+    width:14px;height:14px;border-radius:50%;
+    background:var(--paper);
+    border:1px solid var(--paper-line);
+  }
+  .perf::before{left:-7px;}
+  .perf::after{right:-7px;}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(243,241,235,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--paper-line);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 0;
+  }
+  .brand{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:22px;
+    letter-spacing:-.01em;
+    display:flex;align-items:center;gap:8px;
+  }
+  .brand .dash{color:var(--brass);}
+  .brand-accent{color:var(--brass-deep);}
+  .nav-links{display:flex;align-items:center;gap:28px;font-size:14.5px;color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--ink);}
+  .phone{font-family:var(--mono);font-weight:600;font-size:14.5px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 22px;
+    background:var(--ink);
+    color:var(--paper);
+    font-weight:600;
+    font-size:14.5px;
+    border-radius:2px;
+    box-shadow:0 8px 18px -12px rgba(20,33,44,.8);
+    transition:background .2s ease, transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover{background:var(--ink-soft);transform:translateY(-2px);box-shadow:0 14px 25px -12px rgba(20,33,44,.65);}
+  .btn:disabled{opacity:.65;cursor:wait;transform:none;}
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--ink);
+  }
+  .btn-ghost:hover{background:var(--ink);color:var(--paper);}
+  .nav .btn{padding:11px 18px;font-size:13.5px;}
+  @media(max-width:780px){.nav-links{display:none;}}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:76px 0 88px;}
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;
+  }
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:52px;}}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--clay);font-weight:600;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(38px,5.2vw,60px);
+    line-height:1.04;
+    letter-spacing:-.015em;
+    max-width:14ch;
+  }
+  .hero p.lead{
+    margin-top:22px;
+    font-size:17.5px;
+    color:var(--ink-soft);
+    max-width:46ch;
+    line-height:1.6;
+  }
+  .offer-form{
+    margin-top:32px;
+    max-width:560px;
+    padding:22px;
+    background:rgba(255,255,255,.72);
+    border:1px solid var(--paper-line);
+    border-radius:4px;
+    box-shadow:0 18px 40px -32px rgba(20,33,44,.7);
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .offer-form:hover{transform:translateY(-2px);box-shadow:0 24px 48px -30px rgba(20,33,44,.55);border-color:#C6BCA8;}
+  .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+  .form-field{display:flex;flex-direction:column;gap:6px;}
+  .form-field.full{grid-column:1/-1;}
+  .form-field span{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);font-weight:600;}
+  .offer-form input,.offer-form textarea{
+    width:100%;
+    padding:13px 14px;
+    border:1px solid #BEB6A7;
+    background:#FFFEFA;
+    font-family:var(--body);
+    font-size:14px;
+    border-radius:2px;
+    color:var(--ink);
+    resize:vertical;
+  }
+  .offer-form input:focus,.offer-form textarea:focus{outline:3px solid rgba(184,134,59,.35);border-color:var(--brass-deep);}
+  .offer-form button{width:100%;margin-top:14px;}
+  .form-note{margin-top:10px;font-size:11.5px;color:var(--slate);text-align:center;}
+  .form-status{min-height:20px;margin-top:8px;font-size:13px;font-weight:600;text-align:center;}
+  .form-status.success{color:#2E684D;}
+  .form-status.error{color:#9F3E25;}
+  .hp-field{position:absolute!important;left:-9999px!important;opacity:0!important;pointer-events:none!important;}
+  @media(max-width:560px){.form-grid{grid-template-columns:1fr;}.form-field.full{grid-column:auto;}.offer-form{padding:18px;}}
+  .trust-line{
+    margin-top:18px;
+    font-size:13.5px;
+    color:var(--slate);
+    display:flex;align-items:center;gap:8px;
+  }
+  .trust-line .dot{width:6px;height:6px;border-radius:50%;background:var(--brass);flex:none;}
+
+  /* signature hero element: the offer document */
+  .offer-doc{
+    background:#fff;
+    border:1px solid var(--paper-line);
+    border-radius:3px;
+    padding:30px 28px 26px;
+    box-shadow:0 24px 60px -20px rgba(20,33,44,.28);
+    position:relative;
+    transform:rotate(1.2deg);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .offer-doc:hover{transform:rotate(.3deg) translateY(-5px);box-shadow:0 34px 70px -24px rgba(20,33,44,.34);}
+  .offer-doc::before{
+    content:"";
+    position:absolute;inset:10px;
+    border:1px dashed var(--paper-line);
+    pointer-events:none;
+  }
+  .doc-head{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    padding-bottom:16px;border-bottom:1px solid var(--paper-line);
+    margin-bottom:18px;
+  }
+  .doc-head .doc-title{
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--slate);font-weight:600;
+  }
+  .doc-head .doc-id{font-family:var(--mono);font-size:11px;color:var(--slate);margin-top:4px;}
+  .seal{
+    width:64px;height:64px;border-radius:50%;
+    border:2px solid var(--brass);
+    display:flex;align-items:center;justify-content:center;
+    transform:rotate(-9deg);
+    flex:none;
+  }
+  .seal span{
+    font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.06em;
+    color:var(--brass-deep);text-align:center;line-height:1.25;
+  }
+  .doc-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #EEEAE0;font-size:14px;}
+  .doc-row:last-of-type{border-bottom:none;}
+  .doc-row .label{color:var(--slate);}
+  .doc-row .value{font-weight:600;text-align:right;}
+  .doc-amount{
+    margin-top:18px;padding-top:18px;border-top:1px solid var(--paper-line);
+    display:flex;justify-content:space-between;align-items:baseline;
+  }
+  .doc-amount .label{font-size:13px;color:var(--slate);}
+  .doc-amount .value{font-family:var(--mono);font-weight:600;font-size:30px;color:var(--ink);}
+  .doc-foot{
+    margin-top:16px;font-size:11.5px;color:var(--slate);font-family:var(--mono);
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:88px 0;}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(28px,3.4vw,38px);
+    letter-spacing:-.01em;line-height:1.12;
+  }
+  .section-head p{margin-top:14px;color:var(--slate);font-size:16px;max-width:52ch;}
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+  @media(max-width:820px){.steps{grid-template-columns:1fr;}}
+  .step{
+    padding:0 32px 0 0;
+    border-right:1px solid var(--paper-line);
+    transition:transform .25s ease, filter .25s ease;
+  }
+  .step:hover{transform:translateY(-4px);filter:drop-shadow(0 10px 12px rgba(20,33,44,.1));}
+  .step:last-child{border-right:none;padding-right:0;}
+  @media(max-width:820px){
+    .step{border-right:none;border-bottom:1px solid var(--paper-line);padding:0 0 32px;margin-bottom:32px;}
+    .step:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+  }
+  .step-num{
+    font-family:var(--mono);font-weight:600;font-size:13px;color:var(--brass-deep);
+    letter-spacing:.08em;
+  }
+  .step h3{
+    font-family:var(--display);font-weight:600;font-size:22px;margin:14px 0 10px;
+  }
+  .step p{color:var(--slate);font-size:15px;}
+
+  /* ---------- COMPARISON TABLE ---------- */
+  .compare{
+    border:1px solid var(--paper-line);
+    border-radius:3px;overflow:hidden;
+    background:#fff;
+    transition:transform .25s ease,box-shadow .25s ease;
+  }
+  .compare:hover{transform:translateY(-3px);box-shadow:0 22px 45px -30px rgba(20,33,44,.5);}
+  .compare-row{
+    display:grid;grid-template-columns:1.3fr 1fr 1fr;
+  }
+  .compare-row + .compare-row{border-top:1px solid var(--paper-line);}
+  .compare-row.head{background:var(--ink);color:var(--paper);}
+  .compare-cell{padding:16px 20px;font-size:14.5px;display:flex;align-items:center;}
+  .compare-row.head .compare-cell{
+    font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+  }
+  .compare-cell.feature{color:var(--ink-soft);font-weight:500;}
+  .compare-cell.trad{color:var(--slate);border-left:1px solid var(--paper-line);}
+  .compare-cell.us{
+    border-left:1px solid var(--paper-line);
+    font-weight:600;
+    background:#FBF8F1;
+  }
+  .compare-cell.us::before{
+    content:"✓";color:var(--brass-deep);margin-right:8px;font-weight:700;
+  }
+  @media(max-width:700px){
+    .compare-row{grid-template-columns:1fr;}
+    .compare-cell.trad,.compare-cell.us{border-left:none;border-top:1px solid var(--paper-line);}
+    .compare-row.head .compare-cell:not(:first-child){display:none;}
+  }
+
+  /* ---------- SITUATIONS ---------- */
+  .situations{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--paper-line);border:1px solid var(--paper-line);}
+  @media(max-width:820px){.situations{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.situations{grid-template-columns:1fr;}}
+  .situation{background:var(--paper);padding:28px 26px;transition:background .22s ease,transform .22s ease,box-shadow .22s ease;position:relative;}
+  .situation:hover{background:#FBF8F1;transform:translateY(-3px);z-index:2;box-shadow:0 16px 32px -24px rgba(20,33,44,.55);}
+  .situation h4{font-family:var(--display);font-weight:600;font-size:17.5px;margin-bottom:8px;}
+  .situation p{font-size:14px;color:var(--slate);}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials-viewport{
+    overflow:hidden;
+    padding:12px 0 26px;
+    -webkit-mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);
+    mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);
+  }
+  .testimonials{
+    display:flex;
+    width:max-content;
+    gap:24px;
+    animation:testimonial-scroll 36s linear infinite;
+    will-change:transform;
+  }
+  .testimonials-viewport:hover .testimonials,
+  .testimonials-viewport:focus-within .testimonials{animation-play-state:paused;}
+  @keyframes testimonial-scroll{
+    from{transform:translateX(calc(-50% - 12px));}
+    to{transform:translateX(0);}
+  }
+  .quote-card{
+    background:#fff;border:1px solid var(--paper-line);border-radius:3px;
+    padding:26px 24px;display:flex;flex-direction:column;gap:16px;
+    width:min(360px,calc(100vw - 56px));flex:0 0 min(360px,calc(100vw - 56px));
+    transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  }
+  .quote-card:hover{transform:translateY(-5px);box-shadow:0 22px 42px -28px rgba(20,33,44,.55);border-color:#C8BDA8;}
+
+  /* ---------- PROPERTY VISUAL ---------- */
+  .property-feature{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;}
+  .property-copy h2{font-family:var(--display);font-size:clamp(28px,3.4vw,40px);line-height:1.12;max-width:16ch;}
+  .property-copy p{margin-top:14px;color:var(--slate);max-width:50ch;}
+  .property-points{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:24px;}
+  .property-point{padding:14px;border:1px solid var(--paper-line);background:#fff;font-size:13px;font-weight:600;transition:transform .22s ease,box-shadow .22s ease;}
+  .property-point:hover{transform:translateY(-3px);box-shadow:0 14px 26px -22px rgba(20,33,44,.6);}
+  .property-art{overflow:hidden;border:1px solid var(--paper-line);border-radius:4px;background:#EDE7DC;box-shadow:0 24px 54px -34px rgba(20,33,44,.6);transition:transform .3s ease,box-shadow .3s ease;}
+  .property-art:hover{transform:translateY(-5px) rotate(.25deg);box-shadow:0 34px 64px -32px rgba(20,33,44,.58);}
+  .property-art img{width:100%;aspect-ratio:1.55/1;object-fit:cover;}
+  @media(max-width:860px){.property-feature{grid-template-columns:1fr;gap:30px;}.property-copy h2{max-width:none;}}
+  .quote-card p.quote{font-size:15px;line-height:1.65;color:var(--ink-soft);}
+  .quote-attr{display:flex;align-items:center;gap:10px;}
+  .avatar{
+    width:36px;height:36px;border-radius:50%;
+    background:var(--paper-dim);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-weight:600;font-size:13px;color:var(--brass-deep);
+    flex:none;
+  }
+  .quote-attr .who{font-size:13.5px;font-weight:600;}
+  .quote-attr .where{font-size:12.5px;color:var(--slate);}
+  @media (prefers-reduced-motion: reduce){
+    .testimonials-viewport{overflow-x:auto;mask-image:none;-webkit-mask-image:none;scroll-snap-type:x mandatory;}
+    .testimonials{animation:none;}
+    .quote-card{scroll-snap-align:start;}
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:760px;}
+  .faq-item{border-bottom:1px solid var(--paper-line);}
+  .faq-item:first-child{border-top:1px solid var(--paper-line);}
+  .faq-q{
+    width:100%;text-align:left;background:transparent;
+    padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;
+    font-family:var(--display);font-weight:600;font-size:17.5px;color:var(--ink);
+  }
+  .faq-q .icon{
+    font-family:var(--mono);font-size:18px;color:var(--brass-deep);flex:none;
+    transition:transform .25s ease;
+  }
+  .faq-item.open .faq-q .icon{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .3s ease;
+  }
+  .faq-a-inner{padding:0 0 22px;color:var(--slate);font-size:14.5px;max-width:60ch;line-height:1.6;}
+
+  /* ---------- FINAL CTA ---------- */
+  .cta-band{
+    background:var(--ink);color:var(--paper);
+    padding:80px 0;
+    border-radius:4px;
+    transition:transform .3s ease,box-shadow .3s ease;
+  }
+  .cta-band:hover{transform:translateY(-4px);box-shadow:0 30px 65px -30px rgba(20,33,44,.7);}
+  .cta-band .wrap{display:flex;flex-direction:column;align-items:center;text-align:center;}
+  .cta-band h2{
+    font-family:var(--display);font-weight:700;font-size:clamp(28px,4vw,42px);
+    max-width:16ch;line-height:1.1;
+  }
+  .cta-band p{margin-top:14px;color:#B9C2C9;font-size:15.5px;max-width:44ch;}
+  .cta-band .offer-form{margin-top:30px;max-width:620px;width:100%;background:#1B2B37;border-color:#3C4D59;text-align:left;}
+  .cta-band .offer-form input,.cta-band .offer-form textarea{border-color:#4D5E69;background:var(--ink-soft);color:var(--paper);}
+  .cta-band .offer-form input::placeholder,.cta-band .offer-form textarea::placeholder{color:#8B9AA3;}
+  .cta-band .form-field span,.cta-band .form-note{color:#B9C2C9;}
+  .cta-band .btn{background:var(--brass);color:var(--ink);}
+  .cta-band .btn:hover{background:#C99A4F;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:56px 0 40px;}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;}
+  .foot-brand .brand{margin-bottom:10px;}
+  .foot-brand p{font-size:13px;color:var(--slate);max-width:32ch;}
+  .foot-cols{display:flex;gap:56px;}
+  .foot-col h5{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--slate);margin-bottom:14px;
+  }
+  .foot-col a{display:block;font-size:14px;margin-bottom:10px;color:var(--ink-soft);}
+  .foot-col a:hover{color:var(--ink);}
+  .foot-bottom{
+    margin-top:44px;padding-top:20px;border-top:1px solid var(--paper-line);
+    font-size:12px;color:var(--slate);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+  @media(max-width:640px){.foot-grid{flex-direction:column;}.foot-cols{gap:36px;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand">Next Step <span class="brand-accent">Land Buyers</span></div>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#compare">Why cash</a>
+      <a href="#faq">FAQ</a>
+      <span class="phone">Replies in 24–48 hours</span>
+    </div>
+    <a href="#offer" class="btn">Get Your Offer</a>
+  </div>
+</nav>
+
+<header class="hero" id="offer">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Contact us now · Hear back in 24–48 hours</div>
+      <h1>Tell us about your property.</h1>
+      <p class="lead">Share a few details about your vacant land, acreage, or home. We'll review the property and contact you with a no-obligation cash offer within 24–48 hours — wherever it's located.</p>
+      <form class="offer-form" data-offer-form action="https://formsubmit.co/ajax/romanpapadopoulos1@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New cash offer request from Next Step Land Buyers">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <label class="hp-field" aria-hidden="true">Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+        <div class="form-grid">
+          <label class="form-field"><span>Your name</span><input type="text" name="name" autocomplete="name" placeholder="Full name" required></label>
+          <label class="form-field"><span>Email</span><input type="email" name="email" autocomplete="email" placeholder="you@email.com" required></label>
+          <label class="form-field"><span>Phone</span><input type="tel" name="phone" autocomplete="tel" placeholder="Best number to reach you" required></label>
+          <label class="form-field"><span>Address or parcel #</span><input type="text" name="property" autocomplete="street-address" placeholder="Property location or APN" required></label>
+          <label class="form-field full"><span>Anything we should know? <em style="font-style:normal;font-weight:400;">(optional)</em></span><textarea name="property_details" rows="3" placeholder="Acreage, property condition, access, back taxes, or your ideal timeline"></textarea></label>
+        </div>
+        <button type="submit" class="btn">Get My Cash Offer</button>
+        <p class="form-note">No cost, no obligation. Your details are used only to respond to your request.</p>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+
+    <div class="offer-doc reveal">
+      <div class="doc-head">
+        <div>
+          <div class="doc-title">Cash Offer Summary</div>
+          <div class="doc-id">Ref. No. NS-40281</div>
+        </div>
+        <div class="seal"><span>APPROVED<br>ON FILE</span></div>
+      </div>
+      <div class="doc-row"><span class="label">Address</span><span class="value">14.2 Acres · Elko Co., NV</span></div>
+      <div class="doc-row"><span class="label">Site visit required</span><span class="value">None — 100% virtual</span></div>
+      <div class="doc-row"><span class="label">Access &amp; terrain</span><span class="value">Any — as-is</span></div>
+      <div class="doc-row"><span class="label">Fees &amp; commissions</span><span class="value">$0</span></div>
+      <div class="doc-amount">
+        <span class="label">Cash offer</span>
+        <span class="value">$38,600</span>
+      </div>
+      <div class="doc-foot">Sample offer for illustration purposes only.</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap"><div class="perf"></div></div>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">The process</div>
+      <h2>Three steps, no surprises.</h2>
+      <p>Every offer we make goes through the same simple process — the same one, every time, whether it's a raw parcel of land or a house that needs a full renovation.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01 / TELL US ABOUT IT</div>
+        <h3>Share your address</h3>
+        <p>Answer a few quick questions about your land or home. Takes about two minutes, and there's no cost or commitment to start.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02 / GET YOUR NUMBER</div>
+        <h3>Receive your offer</h3>
+        <p>We research your address using county records, aerial imagery, and recent nearby sales, then contact you with a real cash number within 24–48 hours — no site visit required, and no teaser number to get you on the phone.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03 / ACCEPT & GET PAID</div>
+        <h3>Sell on your terms</h3>
+        <p>Accept when you're ready. No renegotiating after the fact, no financing contingencies — just the number we agreed on, paid in full.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="perf"></div></div>
+
+<section class="section" id="compare">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">The comparison</div>
+      <h2>What a cash sale skips.</h2>
+      <p>Listing vacant land can mean months of waiting on the right buyer. This is for owners who'd rather skip the surveys, the site visits, and the uncertainty.</p>
+    </div>
+    <div class="compare reveal">
+      <div class="compare-row head">
+        <div class="compare-cell">&nbsp;</div>
+        <div class="compare-cell">Traditional sale</div>
+        <div class="compare-cell">Next Step Land Buyers</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Surveys, clearing, or repairs</div>
+        <div class="compare-cell trad">Often required</div>
+        <div class="compare-cell us">Never — sold as-is</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Agent commissions</div>
+        <div class="compare-cell trad">Typically 5–6%</div>
+        <div class="compare-cell us">$0, no commission</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Site visits &amp; showings</div>
+        <div class="compare-cell trad">Multiple visits required</div>
+        <div class="compare-cell us">None — 100% virtual</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Financing falls through</div>
+        <div class="compare-cell trad">A real risk</div>
+        <div class="compare-cell us">Never — we pay cash</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Timeline certainty</div>
+        <div class="compare-cell trad">Unpredictable, buyer-dependent</div>
+        <div class="compare-cell us">Set by you, not a buyer's lender</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell feature">Closing costs</div>
+        <div class="compare-cell trad">Paid by seller</div>
+        <div class="compare-cell us">Covered by us</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="perf"></div></div>
+
+<section class="section">
+  <div class="wrap property-feature">
+    <div class="property-copy reveal">
+      <div class="eyebrow">Land, acreage, or a home</div>
+      <h2>We look at the property you actually own.</h2>
+      <p>Every parcel is different. We review location, access, size, condition, zoning, and nearby sales before we contact you — all without asking you to prepare the property or meet us there.</p>
+      <div class="property-points">
+        <div class="property-point">Any acreage</div>
+        <div class="property-point">Any condition</div>
+        <div class="property-point">No site visit</div>
+        <div class="property-point">No obligation</div>
+      </div>
+    </div>
+    <figure class="property-art reveal">
+      <img src="assets/property-model.jpg" alt="Architectural model of a house on a defined parcel of land" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<div class="wrap"><div class="perf"></div></div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Who we help</div>
+      <h2>Situations we see every week.</h2>
+    </div>
+    <div class="situations reveal">
+      <div class="situation">
+        <h4>Inherited vacant land</h4>
+        <p>Sell land you never planned on owning, without ever needing to visit it.</p>
+      </div>
+      <div class="situation">
+        <h4>Behind on property taxes</h4>
+        <p>Stop back taxes and penalties from piling up on land you're not using.</p>
+      </div>
+      <div class="situation">
+        <h4>Land stuck in probate</h4>
+        <p>Move land through probate to a buyer without extra site visits or delays.</p>
+      </div>
+      <div class="situation">
+        <h4>Out-of-state landowner</h4>
+        <p>Sell property you own from anywhere in the country, entirely by phone and mail.</p>
+      </div>
+      <div class="situation">
+        <h4>Landlocked or unbuildable lots</h4>
+        <p>No road access, tricky zoning, oddly shaped lots — we still make offers.</p>
+      </div>
+      <div class="situation">
+        <h4>Inherited a home</h4>
+        <p>We also buy houses as-is, in any condition, alongside land and acreage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="perf"></div></div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">From recent sellers</div>
+      <h2>What it's like to work with us.</h2>
+    </div>
+    <div class="testimonials-viewport reveal" aria-label="Seller testimonials">
+      <div class="testimonials">
+      <div class="quote-card">
+        <p class="quote">"I inherited 20 acres in another state and honestly had never even laid eyes on it. These guys called, made an offer, and we did the whole thing through the mail. Way less painful than I thought it'd be."</p>
+        <div class="quote-attr">
+          <div class="avatar">RM</div>
+          <div><div class="who">Rachel M.</div></div>
+        </div>
+      </div>
+      <div class="quote-card">
+        <p class="quote">"Forgot I even owned that lot until the tax bill showed up again. Called them up, had a real number within a week, no site visit, no hassle. Just handled it."</p>
+        <div class="quote-attr">
+          <div class="avatar">DT</div>
+          <div><div class="who">Daniel T.</div></div>
+        </div>
+      </div>
+      <div class="quote-card">
+        <p class="quote">"No agents, no listing, nobody walking my land. Just a phone call, an offer, and the money showed up exactly when they said it would."</p>
+        <div class="quote-attr">
+          <div class="avatar">ZT</div>
+          <div><div class="who">Zephyrine Thackeray-Osei</div></div>
+        </div>
+      </div>
+      <div class="quote-card" aria-hidden="true">
+        <p class="quote">"I inherited 20 acres in another state and honestly had never even laid eyes on it. These guys called, made an offer, and we did the whole thing through the mail. Way less painful than I thought it'd be."</p>
+        <div class="quote-attr">
+          <div class="avatar">RM</div>
+          <div><div class="who">Rachel M.</div></div>
+        </div>
+      </div>
+      <div class="quote-card" aria-hidden="true">
+        <p class="quote">"Forgot I even owned that lot until the tax bill showed up again. Called them up, had a real number within a week, no site visit, no hassle. Just handled it."</p>
+        <div class="quote-attr">
+          <div class="avatar">DT</div>
+          <div><div class="who">Daniel T.</div></div>
+        </div>
+      </div>
+      <div class="quote-card" aria-hidden="true">
+        <p class="quote">"No agents, no listing, nobody walking my land. Just a phone call, an offer, and the money showed up exactly when they said it would."</p>
+        <div class="quote-attr">
+          <div class="avatar">ZT</div>
+          <div><div class="who">Zephyrine Thackeray-Osei</div></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <p style="margin-top:16px;font-size:12px;color:var(--slate);">Illustrative testimonials for demonstration purposes.</p>
+  </div>
+</section>
+
+<div class="wrap"><div class="perf"></div></div>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Questions</div>
+      <h2>Before you reach out.</h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">How do you calculate my offer? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">We research your address's location, size, zoning, and access using county records and aerial imagery, then compare it against recent nearby sales. The number we send is the number we pay — it doesn't change later.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Do I need to be there in person or meet anyone? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. The entire process — the offer, paperwork, and closing — is handled by phone, email, and mail. You never need to visit the property or meet anyone face to face.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">What if my land is landlocked, unsurveyed, or has back taxes owed? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">That's most of what we buy. No road access, no survey on file, unpaid taxes, unclear boundaries — we account for it in the offer, and you don't need to resolve anything before selling.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Are there any fees or commissions? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. There's no commission, no listing fee, and we cover standard closing costs. The offer amount is what arrives at closing.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">Am I obligated to accept the offer? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. There's no cost or commitment to request an offer, and you're free to compare it against a traditional listing before deciding.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="cta-band reveal">
+    <div class="wrap">
+      <h2>Contact us for your cash offer.</h2>
+      <p>Submit your property details now and we'll contact you within 24–48 hours. There's no obligation to accept.</p>
+      <form class="offer-form" data-offer-form action="https://formsubmit.co/ajax/romanpapadopoulos1@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New cash offer request from Next Step Land Buyers">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <label class="hp-field" aria-hidden="true">Leave this empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+        <div class="form-grid">
+          <label class="form-field"><span>Your name</span><input type="text" name="name" autocomplete="name" placeholder="Full name" required></label>
+          <label class="form-field"><span>Email</span><input type="email" name="email" autocomplete="email" placeholder="you@email.com" required></label>
+          <label class="form-field"><span>Phone</span><input type="tel" name="phone" autocomplete="tel" placeholder="Best number to reach you" required></label>
+          <label class="form-field"><span>Address or parcel #</span><input type="text" name="property" autocomplete="street-address" placeholder="Property location or APN" required></label>
+          <label class="form-field full"><span>Anything we should know? <em style="font-style:normal;font-weight:400;">(optional)</em></span><textarea name="property_details" rows="3" placeholder="Acreage, property condition, access, back taxes, or your ideal timeline"></textarea></label>
+        </div>
+        <button type="submit" class="btn">Get My Cash Offer</button>
+        <p class="form-note">No cost, no obligation. Your details are used only to respond to your request.</p>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">Next Step <span class="brand-accent">Land Buyers</span></div>
+        <p>Next Step Land Buyers buys vacant land and homes directly from owners nationwide, in any condition, entirely online.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h5>Company</h5>
+          <a href="#how">How it works</a>
+          <a href="#compare">Why cash</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="foot-col">
+          <h5>Contact</h5>
+          <a href="mailto:romanpapadopoulos1@gmail.com">romanpapadopoulos1@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Next Step Land Buyers.</span>
+      <span>Cash offers are subject to property review.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // faq accordion
+  function toggleFaq(btn){
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => {
+      if(o !== item){ o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null; }
+    });
+    if(isOpen){
+      item.classList.remove('open');
+      answer.style.maxHeight = null;
+      btn.setAttribute('aria-expanded','false');
+    } else {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded','true');
+    }
+  }
+
+  // send offer requests by email without leaving the page
+  document.querySelectorAll('[data-offer-form]').forEach(form => {
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      const button = form.querySelector('button[type="submit"]');
+      const status = form.querySelector('.form-status');
+      const data = new FormData(form);
+      if (data.get('_honey')) return;
+
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      status.className = 'form-status';
+      status.textContent = '';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+        if (!response.ok) throw new Error('Request failed');
+        form.reset();
+        status.className = 'form-status success';
+        status.textContent = 'Thank you — your property details were sent. We’ll contact you within 24–48 hours.';
+      } catch (error) {
+        status.className = 'form-status error';
+        status.textContent = 'We couldn’t send your request. Please email romanpapadopoulos1@gmail.com directly.';
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Get My Cash Offer';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
