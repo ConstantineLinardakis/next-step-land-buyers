@@ -37,9 +37,9 @@ The pre-existing FormSubmit endpoint and recipient are preserved. The UI checks 
 
 Local tests used mocked provider responses; no test emails were sent. Recipient activation and actual email delivery have not been verified.
 
-## Sample stories
+## Service statements
 
-The three quote cards are visibly labeled as illustrative examples, not actual customer testimonials. Replace them with permissioned real customer quotes when available.
+The three cards describe the company’s approach. They are service statements, without customer attributions, quotation marks, or testimonial claims.
 
 ## Preview verification
 
