@@ -31,7 +31,7 @@
     </article>`).join('');
 
   document.getElementById('property-count').textContent = `${properties.length} ${properties.length === 1 ? 'property' : 'properties'} to explore`;
-  document.getElementById('listing-date').textContent = `Prices checked ${window.LISTING_UPDATED}. Confirm availability on Zillow.`;
+  document.getElementById('listing-date').textContent = `Listings updated ${window.LISTING_UPDATED}. Confirm availability on Zillow.`;
   document.getElementById('year').textContent = new Date().getFullYear();
   if (properties.length) {
     const featured = properties[0];
