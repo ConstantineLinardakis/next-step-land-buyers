@@ -106,8 +106,24 @@ window.PROPERTIES = [
     "url": "https://www.zillow.com/homedetails/L4-Overbrook-Extension-Rd-Hague-NY-12836/465812103_zpid/",
     "photos": [
       {
-        "src": "assets/hague-placeholder.svg",
-        "alt": "Listing photos available on Zillow — L4 Overbrook Extension Rd, Hague"
+        "src": "https://photos.zillowstatic.com/fp/d6aea561546e80fb9e1a02ad2ad28d3e-uncropped_scaled_within_1536_1152.webp",
+        "alt": "Property listing photo 1 — L4 Overbrook Extension Rd, Hague",
+        "source": "https://photos.zillowstatic.com/fp/d6aea561546e80fb9e1a02ad2ad28d3e-uncropped_scaled_within_1536_1152.webp"
+      },
+      {
+        "src": "https://photos.zillowstatic.com/fp/18a264482cfc09d306b5ead5cf07fa27-uncropped_scaled_within_1536_1152.webp",
+        "alt": "Property listing photo 2 — L4 Overbrook Extension Rd, Hague",
+        "source": "https://photos.zillowstatic.com/fp/18a264482cfc09d306b5ead5cf07fa27-uncropped_scaled_within_1536_1152.webp"
+      },
+      {
+        "src": "https://photos.zillowstatic.com/fp/f49041b62fb3c8fc7fd6a491be104260-uncropped_scaled_within_1536_1152.webp",
+        "alt": "Property listing photo 3 — L4 Overbrook Extension Rd, Hague",
+        "source": "https://photos.zillowstatic.com/fp/f49041b62fb3c8fc7fd6a491be104260-uncropped_scaled_within_1536_1152.webp"
+      },
+      {
+        "src": "https://photos.zillowstatic.com/fp/1cbe2dcff441d2edf93ad3bb46c367a8-uncropped_scaled_within_1536_1152.webp",
+        "alt": "Property listing photo 4 — L4 Overbrook Extension Rd, Hague",
+        "source": "https://photos.zillowstatic.com/fp/1cbe2dcff441d2edf93ad3bb46c367a8-uncropped_scaled_within_1536_1152.webp"
       }
     ],
     "mls": "My State MLS #12016076"
