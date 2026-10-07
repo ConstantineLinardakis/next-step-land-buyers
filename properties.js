@@ -1,6 +1,7 @@
 // Manually maintained listing snapshot. Edit this collection to add, remove, or update properties.
-// Source: linked Zillow listing pages, reviewed September 17, 2026.
-window.LISTING_UPDATED = "September 17, 2026";
+// October 6, 2026: Burnside price supplied by owner; Hague details verified on Trulia (MLS #12016076).
+// Other listings retain their September 17, 2026 review.
+window.LISTING_UPDATED = "October 6, 2026";
 window.PROPERTIES = [
   {
     "id": "traverse-city",
@@ -10,23 +11,23 @@ window.PROPERTIES = [
     "stateName": "Michigan",
     "price": 324900,
     "type": "Land for sale",
-    "facts": "0.46 acres \u00b7 West Bay views",
+    "facts": "0.46 acres · West Bay views",
     "description": "A level 0.46-acre parcel with West Bay views and 100 feet of private sandy shoreline across the road.",
     "url": "https://www.zillow.com/homedetails/0-S-West-Bay-Shr-Traverse-City-MI-49684/465321162_zpid/",
     "photos": [
       {
         "src": "assets/traverse-city-1.webp",
-        "alt": "Bay view through trees on property \u2014 0 S West Bay Shr, Traverse City",
+        "alt": "Bay view through trees on property — 0 S West Bay Shr, Traverse City",
         "source": "https://photos.zillowstatic.com/fp/92b259285bb341ccfe74fa108aa8c6de-cc_ft_1536.webp"
       },
       {
         "src": "assets/traverse-city-2.webp",
-        "alt": "Wide scenic view over West Bay \u2014 0 S West Bay Shr, Traverse City",
+        "alt": "Wide scenic view over West Bay — 0 S West Bay Shr, Traverse City",
         "source": "https://photos.zillowstatic.com/fp/788b6deb79f990d787e2ea38c9365c2b-cc_ft_768.webp"
       },
       {
         "src": "assets/traverse-city-3.webp",
-        "alt": "Aerial map showing property and shore across the road \u2014 0 S West Bay Shr, Traverse City",
+        "alt": "Aerial map showing property and shore across the road — 0 S West Bay Shr, Traverse City",
         "source": "https://photos.zillowstatic.com/fp/a7f602f97c705d076af81e3f3a54edb0-cc_ft_768.webp"
       }
     ],
@@ -40,7 +41,7 @@ window.PROPERTIES = [
     "stateName": "Mississippi",
     "price": 225000,
     "type": "Home for sale",
-    "facts": "3 beds \u00b7 2 baths \u00b7 2,236 sq ft",
+    "facts": "3 beds · 2 baths · 2,236 sq ft",
     "description": "A renovated 1920 home in historic downtown Laurel with three bedrooms, two bathrooms, and a welcoming porch.",
     "url": "https://www.zillow.com/homedetails/836-N-8th-Ave-Laurel-MS-39440/78024870_zpid/",
     "photos": [
@@ -68,9 +69,9 @@ window.PROPERTIES = [
     "city": "Burnside",
     "state": "KY",
     "stateName": "Kentucky",
-    "price": 29000,
+    "price": 25000,
     "type": "Land for sale",
-    "facts": "2.95 acres \u00b7 Wooded retreat",
+    "facts": "2.95 acres · Wooded retreat",
     "description": "A wooded 2.95-acre parcel in Lake Cumberland Resort, with lake views and access to the community's boat ramps.",
     "url": "https://www.zillow.com/homedetails/200-Indian-Creek-Rd-Burnside-KY-42519/464772495_zpid/",
     "photos": [
@@ -91,5 +92,40 @@ window.PROPERTIES = [
       }
     ],
     "mls": "Imagine MLS #26022970"
+  },
+  {
+    "id": "hague",
+    "address": "L4 Overbrook Extension Rd",
+    "city": "Hague",
+    "state": "NY",
+    "stateName": "New York",
+    "price": 67900,
+    "type": "Land for sale",
+    "facts": "1.27 acres · Near Lake George",
+    "description": "A 1.27-acre residential parcel in Overbrook Acres with approximately 270 feet of paved road frontage, available electricity, and municipal sewer hookup availability. A private well is needed. Close to Hague Town Beach and the public boat launch on Lake George. No HOA. See the full listing for details and seller disclosures.",
+    "url": "https://www.zillow.com/homedetails/L4-Overbrook-Extension-Rd-Hague-NY-12836/465812103_zpid/",
+    "photos": [
+      {
+        "src": "https://photos.zillowstatic.com/fp/d6aea561546e80fb9e1a02ad2ad28d3e-uncropped_scaled_within_1536_1152.webp",
+        "alt": "Property listing photo 1 — L4 Overbrook Extension Rd, Hague",
+        "source": "https://photos.zillowstatic.com/fp/d6aea561546e80fb9e1a02ad2ad28d3e-uncropped_scaled_within_1536_1152.webp"
+      },
+      {
+        "src": "https://photos.zillowstatic.com/fp/18a264482cfc09d306b5ead5cf07fa27-uncropped_scaled_within_1536_1152.webp",
+        "alt": "Property listing photo 2 — L4 Overbrook Extension Rd, Hague",
+        "source": "https://photos.zillowstatic.com/fp/18a264482cfc09d306b5ead5cf07fa27-uncropped_scaled_within_1536_1152.webp"
+      },
+      {
+        "src": "https://photos.zillowstatic.com/fp/f49041b62fb3c8fc7fd6a491be104260-uncropped_scaled_within_1536_1152.webp",
+        "alt": "Property listing photo 3 — L4 Overbrook Extension Rd, Hague",
+        "source": "https://photos.zillowstatic.com/fp/f49041b62fb3c8fc7fd6a491be104260-uncropped_scaled_within_1536_1152.webp"
+      },
+      {
+        "src": "https://photos.zillowstatic.com/fp/1cbe2dcff441d2edf93ad3bb46c367a8-uncropped_scaled_within_1536_1152.webp",
+        "alt": "Property listing photo 4 — L4 Overbrook Extension Rd, Hague",
+        "source": "https://photos.zillowstatic.com/fp/1cbe2dcff441d2edf93ad3bb46c367a8-uncropped_scaled_within_1536_1152.webp"
+      }
+    ],
+    "mls": "My State MLS #12016076"
   }
 ];

@@ -23,11 +23,12 @@ Then open http://127.0.0.1:8765 in your browser.
 
 ## Listing data
 
-The properties are a manually maintained snapshot reviewed September 17, 2026. There is no automatic Zillow feed or full-page Zillow iframe. Cards and galleries use the listing photos and factual details, and link to the full Zillow listings for current pricing and availability. Source photo URLs are kept with each photo in `properties.js`.
+The collection was updated October 6, 2026: Burnside pricing was supplied by the owner; Hague details were verified against [Trulia](https://www.trulia.com/home/l4-overbrook-extension-rd-hague-ny-12836-465812103), My State MLS #12016076. Other listings retain their September 17 review. Hague displays four photos directly from the Zillow image URLs supplied by the owner. There is no automatic Zillow feed or full-page Zillow iframe. Cards and galleries use the listing photos and factual details, and link to the full Zillow listings for current pricing and availability. Source photo URLs are kept with each photo in `properties.js`.
 
 1. 0 S West Bay Shr, Traverse City, MI — $324,900; 0.46 acres. The private shore frontage is **across the road** from the parcel.
 2. 836 N 8th Ave, Laurel, MS — $225,000; 3 beds, 2 baths, 2,236 sq ft.
-3. 200 Indian Creek Rd, Burnside, KY — $29,000; 2.95 acres.
+3. 200 Indian Creek Rd, Burnside, KY — $25,000; 2.95 acres.
+4. L4 Overbrook Extension Rd, Hague, NY — $67,900; 1.27 acres.
 
 Update the price/status, photography, details, and review date when listings change. Remove sold properties from the collection or update their display labels.
 
