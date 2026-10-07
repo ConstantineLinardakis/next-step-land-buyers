@@ -28,7 +28,3 @@ footer{border-top:1px solid var(--line);padding:46px 0 22px}.footer-main{display
 .property-dialog{overflow:hidden}.dialog-scroll{max-height:90dvh;overflow-y:auto;overscroll-behavior:contain}.form-grid label>span{font-size:12px}.form-grid input,.form-grid textarea{font-size:14px}@media(max-width:680px){.dialog-scroll{max-height:93dvh}.form-grid input,.form-grid textarea{font-size:16px}}
 
 .story p{font-family:var(--heading);font-size:21px;font-weight:500;line-height:1.55;letter-spacing:-.4px}@media(max-width:920px){.story p{font-size:18px}}@media(max-width:680px){.story{min-height:132px}.story p{font-size:20px}}
-
-/* Keep the complete homepage brand artwork centered at every screen size. */
-.hero-brand-visual{display:flex;align-items:center;justify-content:center;min-width:0;width:100%;margin-inline:auto}
-.hero-brand-image{display:block;width:100%;height:auto;object-fit:contain;object-position:center;border-radius:4px}
