@@ -33,14 +33,6 @@
   document.getElementById('property-count').textContent = `${properties.length} ${properties.length === 1 ? 'property' : 'properties'} to explore`;
   document.getElementById('listing-date').textContent = `Listings updated ${window.LISTING_UPDATED}. Confirm availability on Zillow.`;
   document.getElementById('year').textContent = new Date().getFullYear();
-  if (properties.length) {
-    const featured = properties[0];
-    const heroPhoto = featured.photos[1] || featured.photos[0];
-    document.getElementById('hero-image').src = heroPhoto.src;
-    document.getElementById('hero-image').alt = heroPhoto.alt;
-    document.getElementById('hero-location').textContent = `${featured.city}, ${featured.stateName}`;
-    document.getElementById('hero-property-detail').textContent = `${featured.facts} · ${money(featured.price)}`;
-  }
 
   // Native dialog provides keyboard focus containment and Escape handling.
   function showPhoto() {
