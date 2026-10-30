@@ -1,7 +1,8 @@
 // Manually maintained listing snapshot. Edit this collection to add, remove, or update properties.
 // October 6, 2026: Burnside price supplied by owner; Hague details verified on Trulia (MLS #12016076).
 // Other listings retain their September 17, 2026 review.
-window.LISTING_UPDATED = "October 6, 2026";
+// October 30, 2026: Citronelle details and photos verified on Zillow (MLS #7861504).
+window.LISTING_UPDATED = "October 30, 2026";
 window.PROPERTIES = [
   {
     "id": "traverse-city",
@@ -127,5 +128,45 @@ window.PROPERTIES = [
       }
     ],
     "mls": "My State MLS #12016076"
+  },
+  {
+    "id": "citronelle",
+    "address": "0 Smith Rd",
+    "city": "Citronelle",
+    "state": "AL",
+    "stateName": "Alabama",
+    "price": 38700,
+    "type": "Land for sale",
+    "facts": "10.62 acres · Wooded land with creek",
+    "description": "A wooded 10.62-acre parcel with a creek along its eastern side, offering room for a homesite or recreational retreat near local amenities. City water is available; a septic system is required. Located within Citronelle city limits, where mobile homes are not permitted. See the full listing for details and current availability.",
+    "url": "https://www.zillow.com/homedetails/0-Smith-Rd-Citronelle-AL-36522/452225295_zpid/",
+    "photos": [
+      {
+        "src": "https://photos.zillowstatic.com/fp/a892e93fd992d1e52b85f35c125baff0-cc_ft_1536.webp",
+        "alt": "Property listing photo 1 — 0 Smith Rd, Citronelle",
+        "source": "https://photos.zillowstatic.com/fp/a892e93fd992d1e52b85f35c125baff0-cc_ft_1536.webp"
+      },
+      {
+        "src": "https://photos.zillowstatic.com/fp/f70d1235d8d5b0a2d237892174bd4b9f-cc_ft_768.webp",
+        "alt": "Property listing photo 2 — 0 Smith Rd, Citronelle",
+        "source": "https://photos.zillowstatic.com/fp/f70d1235d8d5b0a2d237892174bd4b9f-cc_ft_768.webp"
+      },
+      {
+        "src": "https://photos.zillowstatic.com/fp/448fc534471a23d58dfd6807e3c9ec5c-cc_ft_768.webp",
+        "alt": "Property listing photo 3 — 0 Smith Rd, Citronelle",
+        "source": "https://photos.zillowstatic.com/fp/448fc534471a23d58dfd6807e3c9ec5c-cc_ft_768.webp"
+      },
+      {
+        "src": "https://photos.zillowstatic.com/fp/ad4300457fe7e46df45b06a4f349190f-cc_ft_768.webp",
+        "alt": "Property listing photo 4 — 0 Smith Rd, Citronelle",
+        "source": "https://photos.zillowstatic.com/fp/ad4300457fe7e46df45b06a4f349190f-cc_ft_768.webp"
+      },
+      {
+        "src": "https://photos.zillowstatic.com/fp/44fda50ebbe26c398960655ec333f66a-cc_ft_768.webp",
+        "alt": "Property listing photo 5 — 0 Smith Rd, Citronelle",
+        "source": "https://photos.zillowstatic.com/fp/44fda50ebbe26c398960655ec333f66a-cc_ft_768.webp"
+      }
+    ],
+    "mls": "GCMLS AL #7861504"
   }
 ];
