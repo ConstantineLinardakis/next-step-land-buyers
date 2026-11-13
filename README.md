@@ -23,6 +23,8 @@ Then open http://127.0.0.1:8765 in your browser.
 
 ## Listing data
 
+Honey Fork and Castleberry were added November 12, 2026, using matching current MLS listings (Realtracs #3635568 and Greater Alabama MLS #21470003). Each has three actual listing photos from Movoto and retains the owner-provided Zillow link. The Zillow detail pages could not be retrieved during this update; prices, acreage, and descriptions were checked against the matching MLS pages. Honey Fork sources: [Nashville MLS](https://www.nashvillesmls.com/listing/3635568-0-honey-fork-rd-indian-mound-tn-37079/) and [Movoto](https://www.movoto.com/indian-mound-tn/0-honey-fork-rd-indian-mound-tn-37079-571_3635568/). Castleberry sources: [Movoto](https://www.movoto.com/talladega-al/0-castleberry-rd-apt-na-talladega-al-35160-621_21470003/) and [Weichert](https://www.weichert.com/139360887/). Earlier listings keep their prior review dates.
+
 Citronelle was added October 30, 2026, with details and five photo URLs verified on Zillow (MLS #7861504). The previous collection update was October 6, 2026: Burnside pricing was supplied by the owner; Hague details were verified against [Trulia](https://www.trulia.com/home/l4-overbrook-extension-rd-hague-ny-12836-465812103), My State MLS #12016076. Other listings retain their September 17 review. Hague displays four photos directly from the Zillow image URLs supplied by the owner. There is no automatic Zillow feed or full-page Zillow iframe. Cards and galleries use the listing photos and factual details, and link to the full Zillow listings for current pricing and availability. Source photo URLs are kept with each photo in `properties.js`.
 
 1. 0 S West Bay Shr, Traverse City, MI — $324,900; 0.46 acres. The private shore frontage is **across the road** from the parcel.
@@ -30,6 +32,9 @@ Citronelle was added October 30, 2026, with details and five photo URLs verified
 3. 200 Indian Creek Rd, Burnside, KY — $25,000; 2.95 acres.
 4. L4 Overbrook Extension Rd, Hague, NY — $67,900; 1.27 acres.
 5. 0 Smith Rd, Citronelle, AL — $38,700; 10.62 acres. Creek on the eastern side; city water available; septic required; mobile homes not permitted.
+
+6. 0 Honey Fork Rd, Indian Mound, TN — $319,900; 55 acres. Two adjoining wooded tracts; electricity available; well and septic needed; no HOA.
+7. 0 Castleberry Rd, Talladega, AL — $15,900; 1.6 acres. Water, electricity, and gas at the road; approved four-bedroom septic permit; no HOA; mobile homes not permitted.
 
 Update the price/status, photography, details, and review date when listings change. Remove sold properties from the collection or update their display labels.
 

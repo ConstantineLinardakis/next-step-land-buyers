@@ -2,7 +2,8 @@
 // October 6, 2026: Burnside price supplied by owner; Hague details verified on Trulia (MLS #12016076).
 // Other listings retain their September 17, 2026 review.
 // October 30, 2026: Citronelle details and photos verified on Zillow (MLS #7861504).
-window.LISTING_UPDATED = "October 30, 2026";
+// November 12, 2026: Honey Fork and Castleberry details and photos verified against matching MLS listings.
+window.LISTING_UPDATED = "November 12, 2026";
 window.PROPERTIES = [
   {
     "id": "traverse-city",
@@ -168,5 +169,75 @@ window.PROPERTIES = [
       }
     ],
     "mls": "GCMLS AL #7861504"
+  },
+  {
+    "id": "indian-mound",
+    "address": "0 Honey Fork Rd",
+    "city": "Indian Mound",
+    "state": "TN",
+    "stateName": "Tennessee",
+    "price": 319900,
+    "type": "Land for sale",
+    "facts": "55 acres · Wooded land with trails",
+    "description": "Two adjoining wooded tracts totaling approximately 55 acres in Stewart County, with rolling terrain, existing trails, and over 1,500 feet of road frontage. Electricity is available; a well and septic system are needed. No HOA. See the full listing for details and current availability.",
+    "url": "https://www.zillow.com/homedetails/0-Honey-Fork-Rd-Indian-Mound-TN-37079/2074995833_zpid/",
+    "photos": [
+      {
+        "src": "https://pi.movoto.com/p/571/3635568_0_bJMIyZ_l.webp",
+        "alt": "Property listing photo 1 — 0 Honey Fork Rd, Indian Mound",
+        "source": "https://pi.movoto.com/p/571/3635568_0_bJMIyZ_l.webp"
+      },
+      {
+        "src": "https://pi.movoto.com/p/571/3635568_0_vFbzzr_l.webp",
+        "alt": "Property listing photo 2 — 0 Honey Fork Rd, Indian Mound",
+        "source": "https://pi.movoto.com/p/571/3635568_0_vFbzzr_l.webp"
+      },
+      {
+        "src": "https://pi.movoto.com/p/571/3635568_0_6EJrEU_l.webp",
+        "alt": "Property listing photo 3 — 0 Honey Fork Rd, Indian Mound",
+        "source": "https://pi.movoto.com/p/571/3635568_0_6EJrEU_l.webp"
+      }
+    ],
+    "mls": "Realtracs MLS #3635568",
+    "sources": [
+      "https://www.nashvillesmls.com/listing/3635568-0-honey-fork-rd-indian-mound-tn-37079/",
+      "https://www.movoto.com/indian-mound-tn/0-honey-fork-rd-indian-mound-tn-37079-571_3635568/"
+    ],
+    "reviewedAt": "2026-11-12"
+  },
+  {
+    "id": "talladega",
+    "address": "0 Castleberry Rd",
+    "city": "Talladega",
+    "state": "AL",
+    "stateName": "Alabama",
+    "price": 15900,
+    "type": "Land for sale",
+    "facts": "1.6 acres · Wooded homesite",
+    "description": "A wooded 1.6-acre parcel in McIntosh Trails on a quiet dead-end road. Public water, electricity, and gas are available at the road. Perc tested with an approved four-bedroom septic permit. No HOA; mobile homes are not permitted. See the full listing for details and current availability.",
+    "url": "https://www.zillow.com/homedetails/0-Castleberry-Rd-Talladega-AL-35160/2055621673_zpid/",
+    "photos": [
+      {
+        "src": "https://pi.movoto.com/p/621/21470003_0_zami7q_l.webp",
+        "alt": "Property listing photo 1 — 0 Castleberry Rd, Talladega",
+        "source": "https://pi.movoto.com/p/621/21470003_0_zami7q_l.webp"
+      },
+      {
+        "src": "https://pi.movoto.com/p/621/21470003_0_My6iBR_l.webp",
+        "alt": "Property listing photo 2 — 0 Castleberry Rd, Talladega",
+        "source": "https://pi.movoto.com/p/621/21470003_0_My6iBR_l.webp"
+      },
+      {
+        "src": "https://pi.movoto.com/p/621/21470003_0_bume7J_l.webp",
+        "alt": "Property listing photo 3 — 0 Castleberry Rd, Talladega",
+        "source": "https://pi.movoto.com/p/621/21470003_0_bume7J_l.webp"
+      }
+    ],
+    "mls": "Greater Alabama MLS #21470003",
+    "sources": [
+      "https://www.movoto.com/talladega-al/0-castleberry-rd-apt-na-talladega-al-35160-621_21470003/",
+      "https://www.weichert.com/139360887/"
+    ],
+    "reviewedAt": "2026-11-12"
   }
 ];
